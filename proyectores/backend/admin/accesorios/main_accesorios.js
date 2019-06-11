@@ -34,8 +34,9 @@ $("#btnacc").click(function(){
 //BOTON GUARDAR
 $("#btnGuardarAcc").click(function(){
   console.log("en formulario")
+  nom=$("#nombre").val();
   est=$("#lista").val();
-  mod=$("#modelo").val();
+  mod=$("#model").val();
   mar=$("#marca").val();
   tip=$("#tipo").val();
 
@@ -43,6 +44,7 @@ $("#btnGuardarAcc").click(function(){
 
   obj={
     accion: "insertar_accesorios",
+    nom: nom,
     est: est,
     mod: mod,
     mar: mar,
@@ -56,7 +58,7 @@ $("#btnGuardarAcc").click(function(){
    }
 
 
-   if(est=="" || mod=="" || mar == "" || tip == ""){
+   if(nom=="" ||est=="" || mod=="" || mar == "" || tip == ""){
        alert("No dejes campos vacios");
        return;
    }else{
@@ -87,7 +89,7 @@ $(document).on("click", ".eliminar_accesorios", function(){
           id: id
       },
       success: function(data){
-          console.log(data);
+          //console.log(data);
       }
   })
   location.reload();
@@ -104,8 +106,9 @@ $(document).on("click", ".editar_accesorios", function(){
 
 
   $.post("../../includes/funciones_accesorios.php", obj, function(data){
+      $("#nombre").val(data.acc_nombre);
       $("#lista").val(data.acc_status);
-      $("#modelo").val(data.acc_modelo);
+      $("#model").val(data.acc_model);
       $("#marca").val(data.acc_marca);
       $("#tipo").val(data.acc_tipo);
   }, "JSON");
@@ -133,10 +136,11 @@ function Mostrar(){
            let status = "";
                       template += `           <tr>
                                   <td>${i+1}</td>
-                                  <td>${e.pro_status}</td>
-                                  <td>${e.pro_modelo}</td>
-                                  <td>${e.pro_marca}</td>
-                                  <td>${e.pro_tipo}</td>
+                                  <td>${e.acc_nombre}</td>
+                                  <td>${e.acc_status}</td>
+                                  <td>${e.acc_model}</td>
+                                  <td>${e.acc_marca}</td>
+                                  <td>${e.acc_tipo}</td>
                                   <td>
                                       <a href="#" class="editar_accesorios" data-id="${e.acc_id}" ><i  class="fas fa-edit"></i></a>
                                   </td>
@@ -146,7 +150,7 @@ function Mostrar(){
                               </tr>`;
 
        });
-       $("#tablasal tbody").html(template);
+       $("#tablaacc tbody").html(template);
   }, "JSON");
 
 

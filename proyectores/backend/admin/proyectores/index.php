@@ -2,8 +2,8 @@
     <div class="row">
         <div class="col-lg-12">
         <br><br>
-        <h2>Salones
-        <button id="btnspro" type="button" class="btn btn-primary" data-toggle="modal">Agregar nuevo
+        <h2>Proyectores
+        <button id="btnpro" type="button" class="btn btn-primary" data-toggle="modal">Agregar nuevo
             <span class="fas fa-plus"></span>
         </button>
     </h2>
@@ -16,10 +16,11 @@
     <div class="row">
             <div class="col-lg-12">
                 <div class="table-responsive">
-                    <table id="tablasal" class="table table-striped table-bordered table-condensed" style="width:100%">
+                    <table id="tablapro" class="table table-striped table-bordered table-condensed" style="width:100%">
                     <thead class="text-center">
                         <tr>
                             <th>No</th>
+                            <th>Nombre</th>
                             <th>Estatus del proyector</th>
                             <th>Modelo</th>
                             <th>Marca</th>
@@ -48,18 +49,15 @@
             </button>
         </div>
     <form id="formulario" action="">
-        <div class="modal-body">
+        <div class="modal-body">         
 
-          <div class="form-group">
-            <label for="descripcion" class="col-form-label">Estatus:</label><br>
-            <select id="lista">
-               <option value="1">Activo</option>
-               <option value="0">Inactivo</option>
-            </select>
-          </div>
-
+               <div class="form-group">
+            <label for="nombre" class="col-form-label">Nombre:</label>
+            <input type="text" class="form-control" id="nombre">
+            </div>
+             
              <div class="form-group">
-            <label for="nombre" class="col-form-label">Nombre del Modelo:</label>
+            <label for="nombre" class="col-form-label">Modelo:</label>
             <input type="text" class="form-control" id="modelo">
             </div>
 
@@ -67,6 +65,14 @@
             <label for="descripcion" class="col-form-label">Marca:</label>
             <input type="text" class="form-control" id="marca">
             </div>
+            
+             <div class="form-group">
+            <label for="descripcion" class="col-form-label">Estatus:</label><br>
+            <select id="lista">
+               <option value="1">Activo</option>
+               <option value="0">Inactivo</option>
+            </select>
+          </div>
 
         </div>
         <div class="modal-footer">

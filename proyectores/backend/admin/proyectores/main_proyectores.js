@@ -34,6 +34,7 @@ $("#btnpro").click(function(){
 //BOTON GUARDAR
 $("#btnGuardarPro").click(function(){
   console.log("en formulario")
+  nom=$("#nombre").val();
   est=$("#lista").val();
   mod=$("#modelo").val();
   mar=$("#marca").val();
@@ -42,6 +43,7 @@ $("#btnGuardarPro").click(function(){
 
   obj={
     accion: "insertar_proyectores",
+    nom: nom,
     est: est,
     mod: mod,
     mar: mar
@@ -54,7 +56,7 @@ $("#btnGuardarPro").click(function(){
    }
 
 
-   if(est=="" || mod=="" || mar == ""){
+   if(nom=="" ||est=="" || mod=="" || mar == ""){
        alert("No dejes campos vacios");
        return;
    }else{
@@ -85,7 +87,7 @@ $(document).on("click", ".eliminar_proyectores", function(){
           id: id
       },
       success: function(data){
-          console.log(data);
+         // console.log(data);
       }
   })
   location.reload();
@@ -102,6 +104,7 @@ $(document).on("click", ".editar_proyectores", function(){
 
 
   $.post("../../includes/funciones_proyectores.php", obj, function(data){
+      $("#nombre").val(data.pro_nombre);
       $("#lista").val(data.pro_status);
       $("#modelo").val(data.pro_modelo);
       $("#marca").val(data.pro_marca);
@@ -130,7 +133,8 @@ function Mostrar(){
            let status = "";
                       template += `           <tr>
                                   <td>${i+1}</td>
-                                  <td>${e.pro_status}</td>
+                                  <td>${e.pro_nombre}</td>                             
+                                  <td>${e.pro_status}</td>                             
                                   <td>${e.pro_modelo}</td>
                                   <td>${e.pro_marca}</td>
                                   <td>
@@ -142,7 +146,7 @@ function Mostrar(){
                               </tr>`;
 
        });
-       $("#tablasal tbody").html(template);
+       $("#tablapro tbody").html(template);
   }, "JSON");
 
 

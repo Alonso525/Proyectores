@@ -30,6 +30,7 @@
         extract($_POST);
 
         $insertar=$db ->insert("accesorios",[
+                                            "acc_nombre"=>$nom,                      
                                             "acc_status"=>$est,
                                             "acc_model"=>$mod,
                                             "acc_marca"=>$mar,
@@ -64,7 +65,8 @@
     function editar_accesorios(){
         global $db;
         extract($_POST);
-         $editar=$db ->update("accesorios",["acc_status"=>$est,
+         $editar=$db ->update("accesorios",["acc_nombre"=>$nom,
+                                        "acc_status"=>$est,
                                         "acc_model"=>$mod,
                                         "acc_marca"=>$mar,
                                         "acc_tipo"=>$tipo,

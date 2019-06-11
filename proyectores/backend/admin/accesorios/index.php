@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col-lg-12">
         <br><br>
-        <h2>Salones
+        <h2>Accesorios
         <button id="btnacc" type="button" class="btn btn-primary" data-toggle="modal">Agregar nuevo
             <span class="fas fa-plus"></span>
         </button>
@@ -16,10 +16,11 @@
     <div class="row">
             <div class="col-lg-12">
                 <div class="table-responsive">
-                    <table id="tablasal" class="table table-striped table-bordered table-condensed" style="width:100%">
+                    <table id="tablaacc" class="table table-striped table-bordered table-condensed" style="width:100%">
                     <thead class="text-center">
                         <tr>
                             <th>No</th>
+                            <th>Nombre</th>
                             <th>Estatus</th>
                             <th>Modelo</th>
                             <th>Marca</th>
@@ -50,17 +51,14 @@
         </div>
     <form id="formulario" action="">
         <div class="modal-body">
-
-          <div class="form-group">
-            <label for="descripcion" class="col-form-label">Estatus:</label><br>
-            <select id="lista">
-               <option value="1">Activo</option>
-               <option value="0">Inactivo</option>
-            </select>
-          </div>
-
+        
+            <div class="form-group">
+            <label for="nombre" class="col-form-label">Nombre:</label>
+            <input type="text" class="form-control" id="nombre">
+            </div>
+            
              <div class="form-group">
-            <label for="nombre" class="col-form-label">Nombre del Modelo:</label>
+            <label for="nombre" class="col-form-label">Modelo:</label>
             <input type="text" class="form-control" id="modelo">
             </div>
 
@@ -73,6 +71,14 @@
             <label for="descripcion" class="col-form-label">Tipo:</label>
             <input type="text" class="form-control" id="tipo">
             </div>
+            
+              <div class="form-group">
+            <label for="descripcion" class="col-form-label">Estatus:</label><br>
+            <select id="lista">
+               <option value="1">Activo</option>
+               <option value="0">Inactivo</option>
+            </select>
+          </div>
 
         </div>
         <div class="modal-footer">

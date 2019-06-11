@@ -30,7 +30,7 @@
         global $db;
         extract($_POST);
 
-        $insertar=$db ->insert("proyectores",[
+        $insertar=$db ->insert("proyectores",[                                                                             "pro_nombre"=>$nom,
                                             "pro_status"=>$est,
                                             "pro_modelo"=>$mod,
                                             "pro_marca"=>$mar,
@@ -64,7 +64,8 @@
     function editar_proyectores(){
         global $db;
         extract($_POST);
-         $editar=$db ->update("proyectores",["pro_status"=>$est,
+         $editar=$db ->update("proyectores",["pro_nombre"=>$nom,
+                                        "pro_status"=>$est,
                                         "pro_modelo"=>$mod,
                                         "pro_marca"=>$mar,
                                       ],["pro_id"=>$id]);
